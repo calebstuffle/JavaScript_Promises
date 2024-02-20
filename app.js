@@ -15,6 +15,26 @@ function getList() {
   });
 }
 
+// Exercise 1 //
+
+var catchError = document.getElementById("error");
+var ul = document.getElementById("list");
+
+// Exercise 2 //
+
+// could call .then from getlist() or by creating a variable for getlist (i.e. let getlist = getlist(); then getlist.then()) //
+getList()
+  .then((list) => {
+    list.forEach((name) => {
+      newLi = document.createElement("li");
+      newLi.textContent = name;
+      ul.appendChild(newLi);
+    });
+  })
+  .catch((error) => {
+    catchError.textContent = error.message;
+  });
+
 // TODO: Handle the resolved or rejected states of the promise
 
 // TODO: If the promise resolves with the list of hobbits
